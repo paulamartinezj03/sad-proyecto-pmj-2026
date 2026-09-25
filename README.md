@@ -28,4 +28,38 @@ Red para los servidores criticos internos y la administración. No tiene acceso 
 ### 3. LAN de empleados (172.2.6.0/24)
 Red de usuarios estandar. Navegacion restringida a través del proxy.
 - Equipo de Administración (adminpc)
-    - SO:
+    - SO: Alpine Linux
+    - Hostname: adminpc-pmj
+    - IP: 172.2.6.10
+    - Rol: Maquina de salto y gestion. Desde aqui el administrador despliega scripts, se conecta por SSH a los demás equipos usando claves, etc.
+- Equipo Empleado (empleado)
+    - SO: Alpine Linux
+    - Hostname: empleadopc-pmj
+    - IP: 172.2.6.100
+    - Rol: Simula un empleado de la PYME
+### 4. DMZ - Zona desmilitarizada
+Servicios expuestos o que intermedian con el exterior
+- Servidor proxy (proxy)
+    - SO: Ubuntu 24.04
+    - Hostname: proxy-pmj
+    - IP: 172.1.6.2
+    - Rol: Proxy web (Squid) para filtrar trafico de los empleados
+- Servidor web (www)
+    - SO: ALpine Linux
+    - Hostname: www.pmj
+    - IP: 172.1.6.3
+    - Rol: Aloja los servicios web expuestos de la PYME y DVWA para las practicas de Pentesing.
+## 3.Instrucciones para el despliegue
+### 3.1 Requisitos previos
+Tener instalado lo siguiente:
+- Git
+- Virtualbox
+- Vagrant
+### 3.2 Despliegue
+1. Clonar este repositorio
+git clone https://github.com/pes130/vagrantsad.git
+2. Levantar con vagrant
+cd vagrantsad
+vagrant up
+3. Una vez levantado, comprobamos el estado:
+vagrant status
