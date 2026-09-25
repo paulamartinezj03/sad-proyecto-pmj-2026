@@ -59,7 +59,11 @@ Tener instalado lo siguiente:
 1. Clonar este repositorio
 git clone https://github.com/pes130/vagrantsad.git
 2. Levantar con vagrant
+```
 cd vagrantsad
 vagrant up
+```
 3. Una vez levantado, comprobamos el estado:
-vagrant status
+```
+    vagrant status
+```
